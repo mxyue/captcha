@@ -57,6 +57,16 @@ Examples
 Constants
 ---------
 
+for gin router
+``` go
+func GetPng(c *gin.Context) {
+  number := captcha.RandomDigits(4)
+  img := captcha.NewImage("", number, 240, 90)
+  c.Data(http.StatusOK, "image/png", img.EncodedPNG())
+}
+```
+
+
 ``` go
 const (
     // Default number of digits in captcha solution.
